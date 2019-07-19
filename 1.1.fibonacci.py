@@ -8,6 +8,12 @@ def fib2(n):
         return n
     return fib2(n - 1) + fib2(n - 2)
 
+memoizedData = {0: 0, 1: 1}
+def fib3(n):
+    if n not in memoizedData:
+        memoizedData[n] = fib3(n - 1) + fib3(n - 2)
+    return memoizedData[n]
+
 if __name__ == '__main__':
-    print(fib2(5))
-    print(fib2(10))
+    print(fib3(5))
+    print(fib3(50))
