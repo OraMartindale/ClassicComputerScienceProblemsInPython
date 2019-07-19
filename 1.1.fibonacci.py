@@ -14,6 +14,14 @@ def fib3(n):
         memoizedData[n] = fib3(n - 1) + fib3(n - 2)
     return memoizedData[n]
 
+from functools import lru_cache
+
+@lru_cache(maxsize=None)
+def fib4(n):
+    if n < 2:
+        return n
+    return fib4(n - 1) + fib4(n - 2)
+
 if __name__ == '__main__':
-    print(fib3(5))
-    print(fib3(50))
+    print(fib4(5))
+    print(fib4(50))
