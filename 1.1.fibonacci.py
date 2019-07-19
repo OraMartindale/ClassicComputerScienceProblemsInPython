@@ -31,6 +31,16 @@ def fib5(n):
         last, next = next, last + next
     return next
 
+def fib6(n):
+    yield 0
+    if n > 0:
+        yield 1
+    last = 0
+    next = 1
+    for _ in range(1, n):
+        last, next = next, last + next
+        yield next
+
 if __name__ == '__main__':
-    print(fib5(5))
-    print(fib5(50))
+    for i in fib6(50):
+        print(i)
